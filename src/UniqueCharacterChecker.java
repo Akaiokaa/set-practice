@@ -1,3 +1,7 @@
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TreeSet;
+
 /**
  * The UniqueCharacterChecker class provides a method to check if all characters
  * in a given word are unique.
@@ -14,7 +18,26 @@ public class UniqueCharacterChecker {
         // TODO: implement this!
         // Requirement: This must run in O(n) time, where n is the number of characters in the word
         // Hint: Stuck? Consider looking up "charAt" and seeing how it can help you
-        return false;
+
+        /*
+        hashset only unqiue values
+        try making a counter to see if it as been seen
+         loop through the word get its .length()
+
+         go through each of the letters and check to see if it has appeared more than once
+
+         return true or false whether there are duplicate characters
+         */
+        Set<Character> seen = new HashSet<>();
+        for (int i = 0; i < word.length(); i++) {
+            if (seen.contains(word.charAt(i))) {
+                return false;
+            }
+            seen.add(word.charAt(i));
+        }
+        
+
+        return true;
     }
 
     public static void main(String[] args) {
