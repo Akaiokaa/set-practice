@@ -1,3 +1,4 @@
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -15,7 +16,21 @@ public class CommonElementsFinder {
      */
     public static Set<Integer> findCommonElements(int[] array1, int[] array2) {
         // TODO
-        return null;
+        Set<Integer> hash1 = new HashSet<>();
+        for (Integer integer : array1) {
+            hash1.add(integer);
+        }
+        Set<Integer> hash2 = new HashSet<>();
+        for (Integer integer : array2) {
+            hash2.add(integer);
+        }
+        Set<Integer> commonHash = new HashSet<>();
+        for (Integer integer : hash2) {
+            if (hash1.contains(integer)) {
+                commonHash.add(integer);
+            }
+        }
+        return commonHash;
     }
 
 
